@@ -11,6 +11,7 @@
     <!-- Bootstrap core CSS -->
     <link href= "{{asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/css/boutiquetunisienne.css') }}">
+<script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
     {% block javascript %}
 
     {% endblock %}
@@ -35,35 +36,47 @@
     <link href="{{asset('assets/css/carousel.css')}}" rel="stylesheet">
 </head>
 <body>
-<header>
-    <nav class="navbar navbar-expand-md fixed-top bg-info.bg-gradient"  style="background-color: #1ED760;"> 
-        <a class="navbar-brand" href="{{ path('home') }}"style="color:#ffff"><b>PharmaShop</b><br> <small>VOTRE PARTENAIRE SANTÉ</small></a>
+<header> 
+    <nav class="navbar navbar-expand-md fixed-top bg-info.bg-gradient"  style="background-color: #ffff;"> 
+        <a class="navbar-brand" href="{{ path('home') }}"style="color:#007f2d">  
+        <div class="row">
+  <div class="col-sm-8"><div class="logo-image "style="
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: -25px">
+            <img src="{{asset('assets/img/icone-home-naturel.png')}}" class="img-fluid ">
+        </div></div>
+  <div class="col-sm-4"><b>PharmaShop</b><br> <small>VOTRE PARTENAIRE SANTÉ</small></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-        </button>
+        </button></div>
+</div>
+        
+      
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
                <li class="nav-item active">
-                    <a class="nav-link" href={{path('products')}} style="color:#ffff">Nos produits</a>
+                    <a class="nav-link" href={{path('products')}} style="color:#000">Nos produits</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#" style="color:#ffff">Qui sommes-nous ?</a>
+                    <a class="nav-link" href="#" style="color:#000">Qui sommes-nous ?</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#" style="color:#ffff">Contact</a>
+                    <a class="nav-link" href="#" style="color:#000">Contact</a>
                 </li>
             </ul>
 
             <div class="navbar-item-custom">
             {% if app.user %}
-                    <a href="{{ path('account') }}">Mon compte <small>({{ app.user.firstname }})</small></a> | <a href="{{ path('app_logout') }}">Déconnexion</a>
+                    <a href="{{ path('account') }}" role="button" style="color:#696973">Mon compte <small>({{ app.user.firstname }})</small></a> | <a href="{{ path('app_logout') }}"><span class="iconify" data-icon="fa-solid:sign-out-alt" data-width="40" data-height="40"></span>Déconnexion</a>
             {% else %}
-                    <a href="{{ path('app_login') }}">Connexion</a> | <a href="{{ path('register') }}">Inscription</a>
+                    <a href="{{ path('app_login') }}" role="button" style="color:#696973;"><span class="iconify" data-icon="mdi:account-circle" data-width="40" data-height="40"></span>Connexion</a> | <a href="{{ path('register') }}" role="button" style="color:#696973;"> <span class="iconify" data-icon="mdi:pencil-circle-outline" data-width="40" data-height="40"></span>Inscription &nbsp</a>
             {% endif %}
             </div>
                 <a href="{{path ('cart') }}">
-                    <img src="{{ asset('/assets/img/shopping-cart.png') }}" class="cart-icon" alt="Mon panier">
-                </a>
+                    <span class="iconify" data-icon="mdi:cart-outline" data-width="40" data-height="40" style="color:#696973;"></span> </a>
         </div>
     </nav>
 </header>
